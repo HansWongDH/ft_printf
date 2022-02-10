@@ -6,11 +6,11 @@
 #    By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/10 14:32:11 by wding-ha          #+#    #+#              #
-#    Updated: 2022/02/10 17:31:50 by wding-ha         ###   ########.fr        #
+#    Updated: 2022/02/11 03:54:43 by wding-ha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS			=	ft_printf.c ft_printing.c
+SRCS			=	ft_printf.c ft_printing.c ft_print_hex.c
 OBJS			= $(SRCS:.c=.o)
 
 CC				= gcc
