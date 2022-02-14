@@ -6,7 +6,7 @@
 #    By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/10 14:32:11 by wding-ha          #+#    #+#              #
-#    Updated: 2022/02/14 22:58:18 by wding-ha         ###   ########.fr        #
+#    Updated: 2022/02/15 07:21:50 by wding-ha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,9 +30,11 @@ $(NAME):		$(OBJS)
 
 clean:
 				$(RM) $(OBJS)
+				make clean -C libft
 
 fclean:			clean
 				$(RM) $(NAME)
+				make fclean -C libft
 
 re:				fclean $(NAME)
 
