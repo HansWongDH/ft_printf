@@ -6,11 +6,12 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 19:41:13 by wding-ha          #+#    #+#             */
-/*   Updated: 2022/02/14 22:49:08 by wding-ha         ###   ########.fr       */
+/*   Updated: 2022/02/15 05:21:15 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdio.h>
 
 int	checkSpace(t_data data)
 {
@@ -26,7 +27,12 @@ int	printString(char *str, t_data data)
 
 	count = 0;
 	if (!str)
-		return (count += ft_putstr_print("(null)"));
+	{
+		if (data.dot == 1 && data.prec < 6)
+			str = "";
+		else
+			str = "(null)";
+	}
 	len = ft_strlen(str);
 	if (len >= data.prec && data.dot)
 		len = data.prec;
