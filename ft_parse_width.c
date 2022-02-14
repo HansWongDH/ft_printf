@@ -6,7 +6,7 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 22:34:31 by wding-ha          #+#    #+#             */
-/*   Updated: 2022/02/14 22:48:46 by wding-ha         ###   ########.fr       */
+/*   Updated: 2022/02/15 05:20:46 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	printWidth(int len, t_data data)
 	count = 0;
 	if (data.space == 1 && len > 0 && ft_strchr("uid", data.flag))
 		len -= 1;
-	if (data.hash == 1 || data.flag == 'p')
+	if (data.hash == 1 || (data.flag == 'p' && !data.null))
 		len -= 2;
 	while (len > 0)
 	{

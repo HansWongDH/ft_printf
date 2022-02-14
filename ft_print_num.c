@@ -6,20 +6,20 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 21:49:18 by wding-ha          #+#    #+#             */
-/*   Updated: 2022/02/14 22:49:04 by wding-ha         ###   ########.fr       */
+/*   Updated: 2022/02/15 07:08:21 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_intlen(long long n, int sign, int radix)
+int	ft_intlen(long long n, int sign, int radix, int zero)
 {
 	int	len;
 
 	len = 0;
-	if (sign > 0)
+	if (sign > 0 && !zero)
 		len = 1;
-	if (n == 0)
+	if (n == 0 && !zero)
 		len += 1;
 	while (n)
 	{
@@ -67,12 +67,18 @@ int	ft_print_number(long n, t_data data)
 {
 	int	count;
 	int	sign;
+	int	iszero;
 
 	count = 0;
+	iszero = 0;
 	sign = checkSign(n, data);
 	if (sign == 0)
 		count += checkSpace(data);
-	compareWidthPrec(n, sign, &data);
+	if (n == 0 && data.dot == 1 && data.prec == 0)
+		iszero = 1;
+	compareWidthPrec(n, sign, iszero, &data);
+	if (iszero == 1)
+		return (count += printWidth(data.width, data));
 	if (!data.minus && data.width)
 		count += printWidth(data.width, data);
 	ft_putprec(n, &count, &data);

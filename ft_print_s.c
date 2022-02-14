@@ -6,12 +6,11 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 19:41:13 by wding-ha          #+#    #+#             */
-/*   Updated: 2022/02/15 05:21:15 by wding-ha         ###   ########.fr       */
+/*   Updated: 2022/02/15 07:25:12 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
 int	checkSpace(t_data data)
 {

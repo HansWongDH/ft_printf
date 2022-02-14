@@ -6,7 +6,7 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 05:54:05 by wding-ha          #+#    #+#             */
-/*   Updated: 2022/02/14 22:48:42 by wding-ha         ###   ########.fr       */
+/*   Updated: 2022/02/15 07:25:20 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	analyseFlag(const char *str, int i, t_data *data)
 			data->hash = 1;
 		if (str[i] == '-')
 			data->minus = 1;
-		if (str[i] == '0' && data->minus == 0)
+		if (str[i] == '0' && data->minus == 0 && data->dot == 0)
 			data->zero = 1;
 		if (ft_isdigit(str[i]) && !data->dot)
 			i = parseWidth(str, i, data);

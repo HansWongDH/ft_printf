@@ -6,7 +6,7 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 14:51:18 by wding-ha          #+#    #+#             */
-/*   Updated: 2022/02/14 22:56:18 by wding-ha         ###   ########.fr       */
+/*   Updated: 2022/02/15 07:25:17 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdarg.h>
-# include <limits.h>
 
 typedef struct s_data
 {
@@ -30,13 +29,14 @@ typedef struct s_data
 	int			hash;
 	int			space;
 	int			plus;
+	int			null;
 }				t_data;
 
 t_data	initStruct(void);
 int		ft_printf(const char *str, ...);
 int		checkSpace(t_data data);
 int		printString(char *str, t_data data);
-int		ft_intlen(long long n, int sign, int radix);
+int		ft_intlen(long long n, int sign, int radix, int zero);
 void	ft_putprec(long nb, int *len, t_data *data);
 int		checkSign(long n, t_data data);
 int		ft_print_number(long n, t_data data);
@@ -51,7 +51,7 @@ int		ft_putchar_char(char c, t_data data);
 int		parseWidth(const char *str, int i, t_data *data);
 int		printWidth(int len, t_data data);
 int		parsePrecision(const char *str, int i, t_data *data);
-void	compareWidthPrec(long long n, int sign, t_data *data);
+void	compareWidthPrec(long long n, int sign, int iszero, t_data *data);
 int		analyseFlag(const char *str, int i, t_data *data);
 int		ft_print_format(va_list args, t_data data);
 
