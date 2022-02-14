@@ -5,35 +5,27 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/10 14:51:13 by wding-ha          #+#    #+#             */
-/*   Updated: 2022/02/11 03:33:36 by wding-ha         ###   ########.fr       */
+/*   Created: 2022/02/14 22:43:11 by wding-ha          #+#    #+#             */
+/*   Updated: 2022/02/14 22:49:14 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_print_format(va_list args, const char flag)
+t_data	initStruct(void)
 {
-	int	count;
+	t_data	data;
 
-	count = 0;
-	if (flag == '%')
-		count += ft_putchar_print('%');
-	else if (flag == 'c')
-		count += ft_putchar_print(va_arg(args, int));
-	else if (flag == 's')
-		count += ft_putstr_print(va_arg(args, char *));
-	else if (flag == 'x' || flag == 'X')
-		count += ft_print_hex(va_arg(args, unsigned int), flag);
-	else if (flag == 'p')
-		count += ft_print_hex(va_arg(args, unsigned long long), flag);
-	else if (flag == 'd' || flag == 'i')
-		count += ft_print_number(va_arg(args, int), flag);
-	else if (flag == 'u')
-		count += ft_print_number(va_arg(args, unsigned int), flag);
-	else
-		return (0);
-	return (count);
+	data.flag = 0;
+	data.width = 0;
+	data.dot = 0;
+	data.minus = 0;
+	data.zero = 0;
+	data.prec = 0;
+	data.hash = 0;
+	data.space = 0;
+	data.plus = 0;
+	return (data);
 }
 
 int	ft_printf(const char *str, ...)
@@ -41,16 +33,19 @@ int	ft_printf(const char *str, ...)
 	va_list	args;
 	int		i;
 	int		len;
+	t_data	data;
 
 	i = 0;
 	len = 0;
+	data = initStruct();
 	va_start(args, str);
 	while (str[i])
 	{
 		if (str[i] == '%')
 		{
-			len += ft_print_format(args, str[i + 1]);
-			i++;
+			i = analyseFlag(str, i, &data);
+			len += ft_print_format(args, data);
+			data = initStruct();
 		}
 		else
 			len += ft_putchar_print(str[i]);
