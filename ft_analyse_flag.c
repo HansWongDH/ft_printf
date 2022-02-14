@@ -6,7 +6,7 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 05:54:05 by wding-ha          #+#    #+#             */
-/*   Updated: 2022/02/15 07:25:20 by wding-ha         ###   ########.fr       */
+/*   Updated: 2022/02/15 07:34:29 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	ft_print_format(va_list args, t_data data)
 	else if (data.flag == 'c')
 		count += ft_putchar_char(va_arg(args, int), data);
 	else if (data.flag == 's')
-		count += printString(va_arg(args, char *), data);
+		count += ft_printString(va_arg(args, char *), data);
 	else if (data.flag == 'x' || data.flag == 'X')
 		count += ft_print_hex(va_arg(args, unsigned int), data);
 	else if (data.flag == 'p')
