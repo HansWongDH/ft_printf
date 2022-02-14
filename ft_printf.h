@@ -6,7 +6,7 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 14:51:18 by wding-ha          #+#    #+#             */
-/*   Updated: 2022/02/15 07:31:53 by wding-ha         ###   ########.fr       */
+/*   Updated: 2022/02/15 07:34:02 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ typedef struct s_data
 t_data	initStruct(void);
 int		ft_printf(const char *str, ...);
 int		checkSpace(t_data data);
-int		printString(char *str, t_data data);
+int		ft_printString(char *str, t_data data);
 int		ft_intlen(long long n, int sign, int radix, int zero);
 void	ft_putprec(long nb, int *len, t_data *data);
 int		checkSign(long n, t_data data);
