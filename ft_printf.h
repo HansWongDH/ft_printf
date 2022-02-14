@@ -6,7 +6,7 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 14:51:18 by wding-ha          #+#    #+#             */
-/*   Updated: 2022/02/15 07:25:17 by wding-ha         ###   ########.fr       */
+/*   Updated: 2022/02/15 07:31:53 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,6 @@ int		parsePrecision(const char *str, int i, t_data *data);
 void	compareWidthPrec(long long n, int sign, int iszero, t_data *data);
 int		analyseFlag(const char *str, int i, t_data *data);
 int		ft_print_format(va_list args, t_data data);
+int		ft_null(unsigned long long n, t_data *data);
 
 #endif 

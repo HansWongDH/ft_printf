@@ -6,7 +6,7 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 03:48:40 by wding-ha          #+#    #+#             */
-/*   Updated: 2022/02/15 07:18:52 by wding-ha         ###   ########.fr       */
+/*   Updated: 2022/02/15 07:33:22 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int	ft_print_hex(unsigned long long n, t_data data)
 	else
 		hex = "0123456789abcdef";
 	if (ft_null(n, &data) == 1)
-		return (printString("(nil)", data));
+		return (ft_printString("(nil)", data));
 	if (n == 0 && data.dot == 1 && data.prec == 0)
 		iszero = 1;
 	compareWidthPrec(n, 0, iszero, &data);
