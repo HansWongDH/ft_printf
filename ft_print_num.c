@@ -6,7 +6,7 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 21:49:18 by wding-ha          #+#    #+#             */
-/*   Updated: 2022/02/15 07:08:21 by wding-ha         ###   ########.fr       */
+/*   Updated: 2022/02/15 10:54:51 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	ft_putprec(long nb, int *len, t_data *data)
 	*len += ft_putchar_print("0123456789"[nb % 10]);
 }
 
-int	checkSign(long n, t_data data)
+int	checksign(long n, t_data data)
 {
 	if (data.plus == 1 && n >= 0)
 		return (1);
@@ -71,18 +71,18 @@ int	ft_print_number(long n, t_data data)
 
 	count = 0;
 	iszero = 0;
-	sign = checkSign(n, data);
+	sign = checksign(n, data);
 	if (sign == 0)
-		count += checkSpace(data);
+		count += checkspace(data);
 	if (n == 0 && data.dot == 1 && data.prec == 0)
 		iszero = 1;
-	compareWidthPrec(n, sign, iszero, &data);
+	comparewidthprec(n, sign, iszero, &data);
 	if (iszero == 1)
-		return (count += printWidth(data.width, data));
+		return (count += printwidth(data.width, data));
 	if (!data.minus && data.width)
-		count += printWidth(data.width, data);
+		count += printwidth(data.width, data);
 	ft_putprec(n, &count, &data);
 	if (data.minus && data.width)
-		count += printWidth(data.width, data);
+		count += printwidth(data.width, data);
 	return (count);
 }

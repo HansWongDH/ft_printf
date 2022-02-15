@@ -6,13 +6,13 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 17:02:27 by wding-ha          #+#    #+#             */
-/*   Updated: 2022/02/15 07:18:41 by wding-ha         ###   ########.fr       */
+/*   Updated: 2022/02/15 10:54:57 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	parsePrecision(const char *str, int i, t_data *data)
+int	parseprecision(const char *str, int i, t_data *data)
 {
 	data->dot = 1;
 	data->zero = 0;
@@ -24,7 +24,7 @@ int	parsePrecision(const char *str, int i, t_data *data)
 	return (i);
 }
 
-void	compareWidthPrec(long long n, int sign, int iszero, t_data *data)
+void	comparewidthprec(long long n, int sign, int iszero, t_data *data)
 {
 	int	radix;
 	int	len;
